@@ -12,7 +12,6 @@
         <th scope="col">#</th>
         <th scope="col">name</th>
         <th scope="col">price</th>
-        <th scope="col">images</th>
         <th scope="col">Action</th>
 
     </tr>
@@ -24,10 +23,11 @@
         <th>{{$key+1}}</th>
         <td>{{$list->name}}</td>    
         <td>{{$list->price}}</td> 
-        <td><img src="{{asset('/uploads/'.$list->images)}}" alt="" style="style="border-radius: 2px; width="100px;"></td>
         <td>
             <a class="btn btn-primary" href="{{route('admin.repairs.details',$list->id)}}">View</a>
+            <a class="btn btn-info" href="{{route('admin.repairs.edit',$list->id)}}">Edit</a>
             <a class="btn btn-danger" href="{{route('admin.repairs.delete',$list->id)}}">Delete</a>
+</td>
 
 
     </tr>   

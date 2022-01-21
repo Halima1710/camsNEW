@@ -4,21 +4,23 @@
 @section('main')
 
 <h1>Furniture List</h1>
-<a href="{{route('admin.furnitures.create')}}" class="btn btn-success">Create new Furniture</a>
+
+
+<a href="{{route('admin.furnitures.create')}}" class="btn btn-success">Create new furniture</a>
 
 <table class="table">
     <thead>
     <tr>
-        <th scope="col">#</th>
+        <th scope="col">Id</th>
         <th scope="col">name</th>
-        <th scope="col">height</th>
-        <th scope="col">length</th>
-        <th scope="col">width</th>
-        <th scope="col">Dimension</th>
+        <th scope="col">dimension</th>
 
         <th scope="col">price</th>
         <th scope="col">description</th>
+        <th scope="col">category</th>
         <th scope="col">images</th>
+        <th scope="col">Action</th>
+        
     </tr>
     </thead>
     <tbody>
@@ -27,13 +29,17 @@
     <tr>
         <th>{{$key+1}}</th>
         <td>{{$list->name}}</td> 
-        <td>{{$list->height}}</td>
-        <td>{{$list->length}}</td>
-        <td>{{$list->width}}</td>
-        <td>{{$list->height}} X {{$list->length}} X {{$list->width}}</td>
-        <td>BDT {{$list->price}}</td>
+        <td>{{$list->length}} X {{$list->width}} X {{$list->height}}</td>
+        <td> {{$list->price}}</td>
         <td>{{$list->description}}</td>
-        <td><img src="{{asset('/uploads/'.$list->images)}}" alt="" style="style="border-radius: 2px; width="100px;"></td>
+        <td>{{$list->category->name}}</td>
+        <td><img src="{{asset('/uploads/furnitures/'.$list->images)}}" alt="" style="style="border-radius: 2px; width="100px;"></td>
+        <td>
+        <a class="btn btn-primary" href="{{route('admin.furniture.details',$list->id)}}">View</a>
+        <a class="btn btn-info" href="{{route('admin.furniture.edit',$list->id)}}">Edit</a>
+        <a class="btn btn-danger" href="{{route('admin.furniture.delete',$list->id)}}">Delete</a>
+        </td>
+        
 </tr>   
 @endforeach
     </tbody>

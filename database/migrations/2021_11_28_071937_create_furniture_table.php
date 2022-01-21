@@ -16,11 +16,12 @@ class CreateFurnitureTable extends Migration
         Schema::create('furniture', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->double('height');
             $table->double('length');
             $table->double('width');
+            $table->double('height');
             $table->integer('price');
             $table->string('description')->nullable();
+            $table->string('category_id');
             $table->text('images');
             $table->timestamps();
         });

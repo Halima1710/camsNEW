@@ -4,6 +4,7 @@ namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -46,7 +47,7 @@ class UserController extends Controller
     public function logout()
     {
         Auth::logout();
-     return redirect()->route('website')->with('message','Logging out.');
+     return redirect()->route('user')->with('message','Logging out.');
     }
 }
 

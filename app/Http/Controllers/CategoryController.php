@@ -12,11 +12,11 @@ class CategoryController extends Controller
         return view('admin.furniture.category');
     }
 
-    public function view()
+    public function categorylist()
     {
-        $furnitures=Category::all();
+        $categories=Category::all();
 
-        return view('admin.furniture.categorylist',compact('furnitures'));
+        return view('admin.furniture.categorylist',compact('categories'));
     }
 
     public function store(Request $request){
@@ -31,9 +31,15 @@ class CategoryController extends Controller
           $image_name=date('Ymdhms').'.'.$request->file('images')->getClientOriginalExtension();
   
           //step 3 : store into project directory
-          $request->file('images')->storeAs('/uploads',$image_name);
+          $request->file('images')->storeAs('/uploads/categories',$image_name);
   
       }
+    $request->validate([
+        'name'=>'required',
+        'details'=>'required',
+        'images'=>'required'
+    ]);
+
 
 
 
@@ -42,9 +48,42 @@ class CategoryController extends Controller
     Category::create([
         //field name from DB||  field name from form
         'name'=>$request->name,
-        'images'=>$image_name,
+        'details'=>$request->details,
+        'images'=>$request->images
     ]);
 
-    return redirect()->back();
+    return redirect()->back()->with('status','Category Created Successfully');
 }
+
+public function delete($id)
+{
+   Category::find($id)->delete();
+   return redirect()->back()->with('status','category Deleted Sucessfully');
+
+}
+public function edit($id)
+{
+    $category=Category::find($id);
+    return view('admin.furniture.categoryedit',compact('category'));
+}
+
+public function update(Request $request,$id)
+{
+
+
+    $category=Category::find($id);
+    $category->update([
+        // field name from db || field name from form
+        'name'=>$request->name,
+        'details'=>$request->details,
+        // 'images'=>$request->images
+        
+    ]);
+    return redirect()->route('admin.furniture.categorylist')->with('status','Category Updated Successfully.');
+
+}
+
+
+
+
 }

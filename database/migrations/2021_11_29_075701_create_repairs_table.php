@@ -17,7 +17,6 @@ class CreateRepairsTable extends Migration
             $table->id();
             $table->string('name');
             $table->integer('price');
-            $table->text('images');
             $table->timestamps();
         });
     }

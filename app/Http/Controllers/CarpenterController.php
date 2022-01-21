@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Carpenter;
+use App\Models\Category;
 use App\Http\Controllers\Controller;
 class CarpenterController extends Controller
 {
@@ -52,7 +53,8 @@ class CarpenterController extends Controller
 
     ]);
 
-    return redirect()->back();
+    return redirect()->back()->with('status', 'carpenter information created successfully');
+
 }
 public function carpenterdetails($list_id)
 {
@@ -67,8 +69,52 @@ public function carpenterdetails($list_id)
 public function carpenterdelete($list_id)
 {
    Carpenter::find($list_id)->delete();
-   return redirect()->back()->with('success','carpenter information deleted');
+   return redirect()->back()->with('status','carpenter information deleted successfully');
 }
+
+
+public function carpenteredit($list_id)
+{
+
+    $list=Carpenter::find($list_id);
+
+
+
+    return view('admin.carpenter.carpenteredit',compact('list'));
+
+}
+
+public function carpenterupdate(Request $request,$list_id)
+{
+
+
+    $list=Carpenter::find($list_id);
+
+
+
+  
+
+
+    $list->update([
+        // field name from db || field name from form
+
+        // 'image'=>$image_name,
+        // 'first_name'=>$request->first_name,
+        // 'last_name'=>$request->last_name,
+        'phone_number'=>$request->phone_number,
+        //  'hire_date'=>$request->hire_date,
+         'job_name'=>$request->job_name,
+         'salary'=>$request->salary,
+
+       
+    ]);
+    return redirect()->route('admin.carpenter.carpenterlist')->with('status','Carpenter Information Updated Successfully.');
+
+}
+
+
+
+
 
 
 

@@ -19,10 +19,7 @@
             <input name="price" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
        </div>
 
-        <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Upload Repairing Image</label>
-            <input name="images" type="file"  class="form-control">
-        </div>
+       
 
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>

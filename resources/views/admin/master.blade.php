@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Welcome To | AYAN'S CARPENTER SERVICE</title>
+    <title>Woods</title>
     <!-- Favicon-->
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 
@@ -30,11 +30,12 @@
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="{{url('backend/css/themes/all-themes.css')}}" rel="stylesheet" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
 </head>
 
 <body class="theme-green">
     <!-- Page Loader -->
-<!-- <div class="page-loader-wrapper">
+<div class="page-loader-wrapper">
         <div class="loader">
             <div class="preloader">
                 <div class="spinner-layer pl-red">
@@ -48,7 +49,7 @@
             </div>
             <p>Please wait...</p>
         </div>
-    </div> -->
+    </div>
     <!-- #END# Page Loader -->
     <!-- Overlay For Sidebars -->
     <div class="overlay"></div>
@@ -58,10 +59,15 @@
         <div class="search-icon">
             <i class="material-icons">search</i>
         </div>
-        <input type="text" placeholder="START TYPING...">
+         
+         
+            <div class="input-group">
+        <input type="search" class="form-control" id="search_furniture" placeholder="START TYPING...">
         <div class="close-search">
             <i class="material-icons">close</i>
+            <button type="submit" class="input-grooup-text"><i class="fa fa-search"></i> </button>
         </div>
+
     </div>
     <!-- #END# Search Bar -->
    @include('admin.partials.nav')
@@ -109,7 +115,14 @@
     <script src="{{url('backend/plugins/flot-charts/jquery.flot.pie.js')}}"></script>
     <script src="{{url('backend/plugins/flot-charts/jquery.flot.categories.js')}}"></script>
     <script src="{{url('backend/plugins/flot-charts/jquery.flot.time.js')}}"></script>
-
+    
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    @if(session('status'))
+    <script>
+        swal("{{(session('status'))}}");
+    </script>
+    
+    @endif
     <!-- Sparkline Chart Plugin Js -->
     <script src="{{url('backend/plugins/jquery-sparkline/jquery.sparkline.js')}}"></script>
 

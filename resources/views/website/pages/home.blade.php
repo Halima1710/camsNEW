@@ -20,7 +20,7 @@
 				    	<h1 class="furniture_text">2021</h1>
 				    	<h1 class="trends_text">TRENDS</h1>
 				    	<h1 class="furniture_text">FURNITURE</h1>
-				    	<P class="lorem_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, </P>
+				    	<!-- <P class="lorem_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, </P> -->
 				    	<button class="more_bt">MORE INFO</button>
 				    	<button class="furniture_bt">FURNITURE</button>
 				    </div>
@@ -41,7 +41,7 @@
 				    	<h1 class="furniture_text">2021</h1>
 				    	<h1 class="trends_text">TRENDS</h1>
 				    	<h1 class="furniture_text">FURNITURE</h1>
-				    	<P class="lorem_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, </P>
+				    	<!-- <P class="lorem_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, </P> -->
 				    	<button class="more_bt">MORE INFO</button>
 				    	<button class="furniture_bt">FURNITURE</button>
 				    </div>
@@ -62,7 +62,7 @@
 				    	<h1 class="furniture_text">2021</h1>
 				    	<h1 class="trends_text">TRENDS</h1>
 				    	<h1 class="furniture_text">FURNITURE</h1>
-				    	<P class="lorem_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, </P>
+				    	<!-- <P class="lorem_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, </P> -->
 				    	<button class="more_bt">MORE INFO</button>
 				    	<button class="furniture_bt">FURNITURE</button>
 				    </div>
@@ -90,7 +90,7 @@
 	<div class="layout_padding about_section ">
 		<div class="container">
 			<h1 class="about_taital">About <span style="background-color: #fee421; color: #fff; padding: 0px 5px;">Us</span></h1>
-			<p class="market_text">making it look like readable English. Many desktop publishing</p>
+			<!-- <p class="market_text">making it look like readable English. Many desktop publishing</p> -->
 			<div class="about_bg">
 				<div class="row">
 					<div class="col-md-8">
@@ -109,33 +109,64 @@
 	</div>
 	<!-- about section end -->
 	<!-- our furniture section start -->
-	 <div class="our_furniture_section layout_padding">
-		<div class="container">
+<!-- <div class="our_furniture_section layout_padding"> -->
+		<div class="container"> 
 			<h1 class="about_taital">Our <span style="background-color: #fee421; color: #fff; padding: 0px 5px;">Funitures</span></h1>
 			
-		</div>
-	</div>
-	<div class="our_section_2">
-		<div class="row">
-			<div class="col-sm-5">
-				<div class="images_bt">
-					<div class="image_left">
+		<!-- </div>
+	</div> -->
+	<!-- <div class="our_section_2"> -->
+		<!-- <div class="row"> -->
+			<!-- <div class="col-sm-5"> -->
+				 <div class="images_bt"> 
+					 <div class="image_left"> 
 						<button class="seemore_bt">SEE MORE</button>
 					</div>
 					<div class="image_right">
-						<div class="image_9"><img src="{{url('frontend/images/everest bed.png')}}"></div>
-						
+            <div class="image_9"><img src="{{url('frontend/images/img-9.png')}}"></div>
+            <div class="new_text">NEW DESIGN</div>
+          </div>
+            
+
+					<div class="py-5">
+					<div class="container">
+						<div class="row">
+							<!-- <div class="owl-carousel owl-theme"> -->
+							@foreach($furnitures as $furniture)
+
+			
+							<div class="col-md-3 mt-3">
+								<div class="card">
+									<a href="">
+									<img style="width: 150px; height: 150px" src="{{asset('uploads/furnitures/'.$furniture->images)}}"alt="Item 1">
+									<div class="card-body">
+                                   
+                                    <h5>{{$furniture->name}}</h5> 
+								   <h6>BDT {{$furniture->price}}</h6>
+								   
+                                      
+										 
+						 <!-- <div class="image_right">
+						<div class="image_9"><img src="{{url('frontend/images/everest bed.png')}}"></div> 
+						 -->
 					</div>
+                   <a>
 				</div>
 			</div>
-			<div class="col-sm-4">
+			@endforeach
+			
+			
+
+
+
+			<!-- <div class="col-sm-4">
 				<div class="image"><img src="{{url('frontend/images/crown bed.jpg')}}"></div>
-			</div>
-			<div class="col-sm-3">
+			</div>  -->
+			 <!-- <div class="col-sm-3">
 				<div class="image"><img src="{{url('frontend/images/copy-.jpg')}}"></div>
-			</div>
-		</div>
-		<div class="images_section_2">
+			</div> -->
+		<!-- </div>
+		  <div class="images_section_2"> 
 			<div class="row">
 				<div class="col-sm-4">
 					<div class="image_6"><img src="{{url('frontend/images/bed55.png')}}"></div>
@@ -145,7 +176,7 @@
 				</div>
 				<div class="col-sm-3">
 					<div class="image_6"><img src="{{url('frontend/images/bed77.png')}}"></div>
-				</div>
+				</div> -->
 				
 			</div>
 		</div>

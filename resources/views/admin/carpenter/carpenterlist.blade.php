@@ -6,10 +6,10 @@
 <h1>Carpenter Information List</h1>
 <a href="{{route('admin.carpenter.carpentercreate')}}" class="btn btn-success">Create new information list</a>
 
-<table class="table">
+<table class="table table-striped table-bordered">
     <thead>
     <tr>
-        <th scope="col">#</th>
+        <th scope="col">Id</th>
         <th scope="col">Photo</th>
       <th scope="col">First Name</th> 
         <th scope="col">Last Name</th>
@@ -32,11 +32,12 @@
         <td>{{$list->phone_number}}</td> 
         <td>{{$list->hire_date}}</td> 
         <td>{{$list->job_name}}</td> 
-        <td>{{$list->salary}}</td> 
+        <td> {{$list->salary}}</td> 
         <td>
         <a class="btn btn-primary" href="{{route('admin.carpenter.details',$list->id)}}">View</a>
+        <a class="btn btn-info" href="{{route('admin.carpenter.edit',$list->id)}}">Edit</a>                                             
         <a class="btn btn-danger" href="{{route('admin.carpenter.delete',$list->id)}}">Delete</a>
-
+       </td>
 
 
     </tr>   

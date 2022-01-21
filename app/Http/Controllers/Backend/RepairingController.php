@@ -26,28 +26,17 @@ class RepairingController extends Controller
   public function store(Request $request){
       //dd($request->all());
 
-    $image_name="";
-    //              step 1: check image exist in this request.
-    if($request->hasFile('images'))
-    {
-      
-        // step 2: generate file name
-        $image_name=date('Ymdhms').'.'.$request->file('images')->getClientOriginalExtension();
-
-        //step 3 : store into project directory
-        $request->file('images')->storeAs('/uploads',$image_name);
-
-    }
+    
 
      
      Repair::create([
          //field name from DB||  field name from form
          'name'=>$request->name,
          'price'=>$request->price,
-         'images'=>$image_name,
+         
      ]);
 
-     return redirect()->back()->with('success', 'repairing work created successfully');
+     return redirect()->back()->with('status', 'repairing work created successfully');
 
   }
   
@@ -76,7 +65,37 @@ public function repairingDetails($list_id)
 public function repairingDelete($list_id)
 {
    Repair::find($list_id)->delete();
-   return redirect()->back()->with('success','repairing work deleted');
+   return redirect()->back()->with('status','repairing work deleted');
+
+}
+
+
+public function repairingedit($id)
+{
+
+    $list=Repair::find($id);
+//        $product=Product::where('user_id',$id)->first();
+
+//        dd($product);
+
+
+    return view('admin.repairing.edit',compact('list'));
+
+}
+
+public function repairingupdate(Request $request,$id)
+{
+
+
+    $list=Repair::find($id);
+    $list->update([
+        // field name from db || field name from form
+        'name'=>$request->name,
+        'price'=>$request->price,
+        
+    ]);
+    return redirect()->route('admin.repairs.rlist')->with('status','Repairing Work Updated Successfully.');
+
 }
 
 

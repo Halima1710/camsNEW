@@ -8,6 +8,9 @@
 			    <div class="col-sm-4 col-lg-5">
 			    	<div class="menu-area">
                     <nav class="navbar navbar-expand-lg ">
+
+
+   
                         <!-- <a class="navbar-brand" href="#">Menu</a> -->
                         <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fa fa-bars"></i>
@@ -15,35 +18,34 @@
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav mr-auto">
                                <li class="nav-item active">
-                                <a class="nav-link active" href="index.html">Home<span class="sr-only">(current)</span></a> </li>
+                                <a class="nav-link active" href="">Home<span class="sr-only">(current)</span></a> </li>
                                <li class="nav-item">
-                                <a class="nav-link" href="about.html">About</a></li>
+                                <a class="nav-link" href="">About</a></li>
                                <li class="nav-item">
-                                <a class="nav-link" href="company.html">Company</a></li>
+                                <a class="nav-link" href="">Company</a></li>
                                <li class="#" href="#">
-                               <a class="nav-link" href="contact.html">Contact Us</a></li>
+                                   
+                               <a class="nav-link" href="">Contact Us</a></li>
                                    
   <div class="btn-group">
   <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Furnitures
   </button>
   <div class="dropdown-menu">
-    <a class="dropdown-item" href="#">Bedroom</a>
-    <a class="dropdown-item" href="#">Living Room</a>
-    <a class="dropdown-item" href="#">Dining Room</a>
-    <div class="dropdown-divider"></div>
-    <a class="dropdown-item" href="#">Office Furniture</a>
+      @foreach($categories as $category)
+    <a class="dropdown-item" href="">{{$category->name}}</a>
+        @endforeach
+    
   </div>
 </div>
-                                      
-
+                                    
 <div class="btn-group">
   <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Services
   </button>
   <div class="dropdown-menu">
-    <a class="dropdown-item" href="#">Making</a>
-    <a class="dropdown-item" href="#">Repairing</a>
+    <a class="dropdown-item" href="{{route('website.pages.design')}}">Making</a>
+    <a class="dropdown-item" href="{{route('website.pages.showrepairinglist')}}">Repairing</a>
     <div class="dropdown-divider"></div>
     
   </div>
@@ -54,17 +56,25 @@
                     </nav>
                 </div>
 			    </div>
+                
 			    <div class="col-sm-8 col-lg-4">
 			    	<div class="togle_3">
                   <div class="left_main">
                      <div class="menu_main">
-                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#registration">
-                                Registration
+                     @if(auth()->user())
+                    <!-- Button trigger modal -->
+
+                        <a href="{{route('user.logout')}}" class="btn btn-success">{{auth()->user()->name}} | Logout</a>
+
+                        @else
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#registration">
+                                Register
                             </button>
 
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#login">
                                 Login
                             </button>
+                        @endif
                        
                      </div>
                   </div>
@@ -79,6 +89,14 @@
 
 		</div>
 		</div>
+
+        @if(session()->has('message'))
+    <p class="alert alert-success">{{session()->get('message')}}</p>
+@endif
+
+@if(session()->has('error'))
+    <p class="alert alert-danger">{{session()->get('error')}}</p>
+@endif
     <!-- Modal -->
 <div class="modal fade" id="registration" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">

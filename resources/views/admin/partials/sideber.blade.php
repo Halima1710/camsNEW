@@ -43,7 +43,7 @@
                         <ul class="ml-menu">
                             <li>
                                 <a href="javascript:void(0);" class="menu-toggle">
-                                    <span> Product</span>
+                                    <span> Selling</span>
                                 </a>
                                 <ul class="ml-menu">
                                     <li>
@@ -68,8 +68,19 @@
                                 <a href="javascript:void(0);" class="menu-toggle">
                                     <span>Making</span>
                                 </a>
+                                <ul class="ml-menu">
+                                
+                                <li>
+                                    <a href="{{route('admin.design')}}"> Design</a>
                            </li>
-
+                           <li>
+                               <a href="{{route('admin.designlist')}}">Design List</a>
+                                
+                                <li>
+                                        <a href="{{route('admin.making.list')}}">Making List</a>
+                                    </li>
+                           </li>
+</ul>
 
 
 
@@ -148,36 +159,23 @@
                            
                         </ul>
                     </li>
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M11 7h2v10h-2V7zm4 4h2v6h-2v-6zm-8 2h2v4H7v-4zm8-9H5v16h14V8h-4V4zM3 2.992C3 2.444 3.447 2 3.999 2H16l5 5v13.993A1 1 0 0 1 20.007 22H3.993A1 1 0 0 1 3 21.008V2.992z"/></svg>
-                            <span>Report</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="pages/charts/morris.html">Morris</a>
-                            </li>
-                            <li>
-                                <a href="pages/charts/flot.html">Flot</a>
-                            </li>
-                            <li>
-                                <a href="pages/charts/chartjs.html">ChartJS</a>
-                            </li>
-                            <li>
-                                <a href="pages/charts/sparkline.html">Sparkline</a>
-                            </li>
-                            <li>
-                                <a href="pages/charts/jquery-knob.html">Jquery Knob</a>
-                            </li>
-                        </ul>
-                    </li>
+                    
+                
+                            
+                        
+                        
+                        
+    
+                        
+                        
+                    
                 </ul>
             </div>
             <!-- #Menu -->
             <!-- Footer -->
             <div class="legal">
                 <div class="copyright">
-                    &copy; 2021 - 2022 <a href="javascript:void(0);">AYAN'S CARPENTER SERVICE</a>.
+                    &copy; 2021 - 2022 <a href="javascript:void(0);">Woods</a>.
                 </div>
                 <div class="version">
                     <b>Version: </b> 1.0.5
